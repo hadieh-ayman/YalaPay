@@ -1,0 +1,12 @@
+.paymentsinfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+
+.invoiceinfo, .custinfo{
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #fff;
+}

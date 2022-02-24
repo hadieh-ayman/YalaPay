@@ -59,13 +59,33 @@
       <section class="function">
         <div class="search">
           <input
-            type="text"
-            placeholder="Search for invoices..."
-            class="search-box"
+          type="text"
+          placeholder="Search for invoices..."
+          class="search-box"
           />
           <button class="search-btn">Search</button>
         </div>
         <button class="add-btn">+ new invoice</button>
+      </section>
+      <section class="popup-form">
+        <button class="close-btn">X</button>
+        <form class="form" action="">
+          <h2>Add a new invoice</h2>
+          <label for="customer-name">Customer Name</label><br>
+          <select id="customer-name" name="customer-name" required>
+            <option>Amana Qatar Contracting</option>
+          </select>
+          <br>
+          <label for="amount">Amount</label><br>
+          <input type="number" id="amount" name="amount" min="0" required>
+          <br>
+          <label for="invoice-date">Invoice Date</label><br>
+          <input type="date" id="invoice-date" name="invoice-date" required>
+          <br>
+          <label for="due-date">Due Date</label><br>
+          <input type="date" id="due-date" name="due-date" required>
+          <button class="plus-btn">Add Invoice</button>
+        </form>
       </section>
       <section class="summary">
         <div class="table-header">
@@ -108,5 +128,6 @@
     <footer>
       <p class="copyright">ⓒ 2022. G5-Fatma-Hadieh-Shayma rights reserved.</p>
     </footer>
+    <script src="js/invoices.js"></script>
   </body>
 </html>

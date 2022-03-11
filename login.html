@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>login</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img class="header-logo" src="img/Logo.svg" alt="" />
+        <nav>
+          <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="login.html">Log In</a></li>
+          </ul>
+          <div class="ham-btn">
+            <div class="hamburger"></div>
+        </div>
+        </nav>
+      </header>
+      <main>
+        <div class="login-card">
+          <img class="login-img" src="img/circle-user.svg" alt="" />
+          <h1 class="title">Welcome back!</h1>
+          <h3 class="sub-title">
+            Yalapay is easy to use, easy to master.
+          </h3>
+          <form class="login-form" action="action_page.php" method="post">
+            <div class="name-input">
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                id="fname"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                id="lname"
+                required
+              />
+            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              id="password"
+              required
+            />
+            <div class="submition-btns">
+              <button
+                type="submit"
+                class="submit-btn"
+                onclick="validate()"
+              >
+                Log in
+                <img src="img/arrow-right.svg" alt="">
+              </button>
+              <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </main>
+      <footer>
+        <p class="copyright">ⓒ 2022. G5-Fatma-Hadieh-Shayma rights reserved.</p>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+    <script src="js/login-interaction.js"></script>
+    <script type="module" src="js/login.js"></script>
+  </body>
+</html>

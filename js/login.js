@@ -1,9 +1,16 @@
 import { UserRepo } from "./repository/userRepo.js";
 
 const userRepo = new UserRepo();
+const url = "../YalaPay-data/users.json";
 
+const clearBtn = document.querySelector(".cancel-btn");
 const loginForm = document.querySelector(".login-form");
 loginForm.addEventListener("submit", validate);
+clearBtn.addEventListener("click", () => {loginForm.reset()});
+
+window.onload = async () => {
+    // userRepo.addUsers();
+}
 
 function formToObject(form) {
     const forminfo = new FormData(form);
@@ -13,16 +20,25 @@ function formToObject(form) {
     }
     return info;
 }
+
 async function validate(e) {
     e.preventDefault();
-    const response = await fetch("../YalaPay-data/users.json");
+    const response = await fetch(url);
     const data = await response.json();
     console.log(data);
     const user = formToObject(e.target);
-    console.log(user);
-    const exists = data.filter((x) => x.firstName == user.firstName && x.lastName==user.lastName && x.email==user.email  && x.password==user.password);
+    const exists = data.filter(
+        (x) =>
+            x.firstName == user.firstName &&
+            x.lastName == user.lastName &&
+            x.email == user.email &&
+            x.password == user.password
+    );
     console.log(exists);
-    if(exists.length == 1){
-        window.location = "../dashboard.html"
+    if (exists.length == 1) {
+        window.location = "../dashboard.html";
+    } else {
+        alert("Wrong password or email or name! \nPlease try again");
+        loginForm.reset();
     }
 }

@@ -269,3 +269,50 @@ footer {
     grid-area: footer;
     text-align: center;
 }
+
+@media only screen and (max-width:60rem){
+    nav{
+        padding: 0;
+        justify-content: left;
+    }
+    .nav-logo, .account-name, .account-loc{
+        display: none;
+    }
+    .profile-img {
+        margin: 0.5rem;
+        height: 3.5rem;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navbar .icon-bg{
+        margin: 0;
+    }
+    .credit-card{
+        display: none;
+    }
+    .container {
+        margin: 1rem;
+    }
+    .invoices, .cheques{
+        grid-template-columns: 1fr;
+    }
+    
+    .cheques .card{
+        grid-template-columns: 1fr;
+        grid-gap: 0.5rem;
+    }
+
+    .invoices h1, .cheques h1{
+        grid-column: span 1;
+    }
+    .cheques .amount {
+        grid-column: span 1;
+    }
+    .cheques .details {
+        margin: auto;
+    }
+    .amount {
+        font-size: 1.5rem;
+    }
+}

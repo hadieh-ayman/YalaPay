@@ -11,8 +11,9 @@ export class UserRepo {
         const response = await fetch(url);
         const data = await response.json();
         for (const user of data) {
-            if(db.collection(userCollection).doc({ email: user.email }).get()==null)
-                db.collection(userCollection).add(user);
+            const userExists = await db.collection(userCollection).doc({ email: user.email }).get();
+            if(userExists==undefined) 
+                await db.collection(userCollection).add(user);
         }
     }
 

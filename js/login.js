@@ -9,7 +9,7 @@ loginForm.addEventListener("submit", validate);
 clearBtn.addEventListener("click", () => {loginForm.reset()});
 
 window.onload = async () => {
-    // userRepo.addUsers();
+    userRepo.addUsers();
 }
 
 function formToObject(form) {
@@ -23,11 +23,9 @@ function formToObject(form) {
 
 async function validate(e) {
     e.preventDefault();
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    const repoData = await userRepo.getUsers();
     const user = formToObject(e.target);
-    const exists = data.filter(
+    const exists = repoData.filter(
         (x) =>
             x.firstName == user.firstName &&
             x.lastName == user.lastName &&
@@ -35,7 +33,7 @@ async function validate(e) {
             x.password == user.password
     );
     console.log(exists);
-    if (exists.length == 1) {
+    if (exists!=undefined) {
         window.location = "../dashboard.html";
     } else {
         alert("Wrong password or email or name! \nPlease try again");

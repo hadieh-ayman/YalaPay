@@ -73,44 +73,91 @@
                     />
                     <button class="search-btn">Search</button>
                 </div>
-                <button class="add-btn" onclick="popupForm()">+ new invoice</button>
+                <button class="add-btn">
+                    + new invoice
+                </button>
+                <div class="status-report">
+                    <div class="status-select">
+                        <label for="status">Invoice Status: </label>
+                        <select name="status" id="status">
+                            <option value="All">All</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Partially Paid">
+                                Partially paid
+                            </option>
+                            <option value="Paid">Paid</option>
+                        </select>
+                    </div>
+                    <div class="from-date-box">
+                        <label for="from-date">From Date:</label>
+                        <input type="date" id="from-date" name="from-date" />
+                    </div>
+                    <div class="to-date-box">
+                        <label for="to-date">To Date:</label>
+                        <input type="date" id="to-date" name="to-date" />
+                    </div>
+                </div>
             </section>
             <section class="popup-form">
                 <button class="close-btn">X</button>
                 <form class="form" action="" id="invoiceForm">
                     <h2>Add a new invoice</h2>
-                    <input name="invoiceNo" id="invoiceNo" hidden="true" type="hidden" value=""></input>
-                    <input name="customer-id" id="customer-id" hidden="true" type="hidden" value=""></input>
+                    <input
+                        name="invoiceNo"
+                        id="invoiceNo"
+                        hidden="true"
+                        type="hidden"
+                        value=""
+                    />
+                    <input
+                        name="customerId"
+                        id="customer-id"
+                        hidden="true"
+                        type="hidden"
+                        value=""
+                    />
                     <div class="customer-name-select">
-                      <label for="customer-name">Customer Name</label>
-                      <select id="customer-name" name="customer-name" value="" required>
-                          <option>Amana Qatar Contracting</option>
-                      </select>
+                        <!-- ToDo add existing customers -->
+                        <label for="customerName">Customer Name</label>
+                        <select
+                            id="customer-name"
+                            name="customerName"
+                            value=""
+                            required
+                        >
+                            
+                        </select>
                     </div>
                     <div class="amount-select">
-                      <label for="amount">Amount</label>
-                      <input
-                          type="number"
-                          id="amount"
-                          name="amount"
-                          value=""
-                          min="0"
-                          required
-                      />
+                        <label for="amount">Amount</label>
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            value=""
+                            min="0"
+                            required
+                        />
                     </div>
                     <div class="invoice-date-select">
-                      <label for="invoice-date">Invoice Date</label>
-                      <input
-                          type="date"
-                          id="invoice-date"
-                          name="invoice-date"
-                          value=""
-                          required
-                      />
+                        <label for="invoiceDate">Invoice Date</label>
+                        <input
+                            type="date"
+                            id="invoice-date"
+                            name="invoiceDate"
+                            value=""
+                            required
+                        />
                     </div>
                     <div class="duedate-select">
-                      <label for="due-date">Due Date</label><br />
-                      <input type="date" id="due-date" name="due-date" value="" required />
+                        <label for="dueDate">Due Date</label><br />
+                        <input
+                            type="date"
+                            id="due-date"
+                            name="dueDate"
+                            value=""
+                            required
+                        />
                     </div>
                     <button class="plus-btn" type="submit">Add Invoice</button>
                 </form>
@@ -119,6 +166,7 @@
                 <div class="table-header">
                     <h1 class="table-title">Invoices Summary</h1>
                     <div class="page-slider">
+                        <!-- ToDo implement page selector -->
                         <li><button class="arrow"><</button></li>
                         <li class="page-no">1</li>
                         <li class="page-no">2</li>
@@ -129,15 +177,7 @@
                     </div>
                 </div>
                 <table class="table" id="invoiceTable">
-                    <tr class="table-headings">
-                        <th>Invoice No.</th>
-                        <th>Customer ID</th>
-                        <th>Customer Name</th>
-                        <th>Amount</th>
-                        <th>Invoice Date</th>
-                        <th>Due Date</th>
-                        <th>        </th>
-                    </tr>
+                    
                 </table>
             </section>
         </main>

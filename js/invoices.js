@@ -4,19 +4,23 @@ const repo = new Repo();
 let isEdit = false;
 
 window.onload = async () => {
+    await repo.addInvoicesByJSON();
+    await repo.addCustomersByJSON();
     await showInvoiceData();
+    await showCustomerNames();
     window.deleteInvoice = deleteInvoice;
     window.updateInvoice = updateInvoice;
 };
 
-const addBtn = document.querySelector(".plus-btn");
-const form = document.querySelector(".popup-form");
+const plusBtn = document.querySelector(".plus-btn");
+const popupForm = document.querySelector(".popup-form");
 const invoiceTable = document.querySelector(".table");
+const customerSelect = document.querySelector("#customer-name");
 
-form.addEventListener("submit", addInvoice);
+popupForm.addEventListener("submit", addInvoice);
 
-function formToObject(dataForm) {
-    const formdata = new FormData(dataForm);
+function formToObject(form) {
+    const formdata = new FormData(form);
     const data = {};
     for (const [key, value] of formdata) {
         data[key] = value;
@@ -25,9 +29,11 @@ function formToObject(dataForm) {
 }
 
 async function showInvoiceData() {
-    const Invoices = await repo.getInvoices();
-    console.log(Invoices);
-    const InvoiceRows = Invoices.map((Invoice) => InvoiceToRow(Invoice)).join(" ");
+    const invoices = await repo.getInvoices();
+    // console.log(invoices);
+    const invoiceRows = invoices.map((invoice) => invoiceToRow(invoice)).join(
+        " "
+    );
     invoiceTable.innerHTML = `
     <tr class="table-headings">
       <th>Invoice No.</th>
@@ -38,10 +44,10 @@ async function showInvoiceData() {
       <th>Due Date</th>
       <th>        </th>
     </tr>
-    ${InvoiceRows}`;
+    ${invoiceRows}`;
 }
 
-function InvoiceToRow(invoice) {
+function invoiceToRow(invoice) {
     return `
     <tr class="table-row">
         <td>${invoice.invoiceNo}</td>
@@ -50,7 +56,7 @@ function InvoiceToRow(invoice) {
         <td>${invoice.amount}</td>
         <td>${invoice.invoiceDate}</td>
         <td>${invoice.dueDate}</td>
-        <td>
+        <td class=editing-btns>
             <img class="edit-btn" src="img/pen.svg" onclick="updateInvoice('${invoice.invoiceNo}')"/>
             <img class="delete-btn" src="img/trash.svg" onclick="deleteInvoice('${invoice.invoiceNo}')"/>
         </td>
@@ -58,20 +64,25 @@ function InvoiceToRow(invoice) {
     `;
 }
 
+async function showCustomerNames(){
+    const customers = await repo.getCustomers();
+    const customerOptions = customers.map((customer) => `<option value="${customer.companyName}">${customer.companyName}</option>`);
+    customerSelect.innerHTML = customerOptions.join(' ');
+}
+
 async function addInvoice(e) {
     e.preventDefault();
     const invoice = formToObject(e.target);
-    if (isEdit) {
-        await repo.updateInvoice(invoice);
-        isEdit = false;
-        addBtn.value = "Update";
-    } else {
-        invoice.invoiceNo = Date.now().toString();
-        await repo.addInvoice(invoice);
-    }
+    //assign the invoice number
+    const invoices = await repo.getInvoices();
+    invoice.invoiceNo = invoices.length + 1;
+    //assign the customer ID
+    const customer = await repo.getCustomerByName(invoice.customerName);
+    invoice.customerId = customer.customerId;
+
+    await repo.addInvoice(invoice);
     await showInvoiceData();
-    form.reset();
-    document.querySelector("#invoiceNo").value = "";
+    popupForm.reset();
 }
 
 async function deleteInvoice(invoiceNo) {
@@ -87,6 +98,6 @@ async function updateInvoice(invoiceNo) {
     document.querySelector("#amount").value = Invoice.amount;
     document.querySelector("#invoice-date").value = Invoice.invoiceDate;
     document.querySelector("#due-date").value = Invoice.dueDate;
-    isEdit = true;
-    addBtn.value = "Update";
+    // isEdit = true;
+    // addBtn.value = "Update";
 }

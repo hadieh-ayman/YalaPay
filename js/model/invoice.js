@@ -7,10 +7,4 @@ export class Invoice{
         this.invoiceDate = invoiceDate;
         this.dueDate = dueDate;
     }
-    getInvoiceDate(){
-        var mm = this.invoiceDate.getMonth() + 1;
-        var dd = this.invoiceDate.getDate();
-    
-        return [this.invoiceDate.getFullYear(), (mm>9 ? '' : '0') + mm, (dd>9 ? '' : '0') + dd].join('');
-    }
 }

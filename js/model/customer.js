@@ -1,10 +1,12 @@
 export class Customer{
-    constructor(companyName, address, fname, lname, email, password ){
+    constructor(companyName,street,city,country, fname, lname, email, mobile ){
         this.companyName = companyName;
-        this.address = address;
+        this.street = street;
+        this.city= city;
+        this.country= country;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
-        this.password = password;
+        this.mobile = mobile;
     }
 }

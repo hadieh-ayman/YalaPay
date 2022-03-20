@@ -1,6 +1,6 @@
 const db = new Localbase("user.db");
 const userCollection = "users";
-const url = "../YalaPay-data/users.json";
+const url = "YalaPay-data/users.json";
 
 export class UserRepo {
     getUserByEmail(email) {

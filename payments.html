@@ -1,151 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <link rel="stylesheet" href="css/invoices.css" />
-    <link rel="stylesheet" href="css/payment.css" />
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <nav>
-      <p><img class="nav-logo" src="img/Logo.svg" alt="" /></p>
-      <div class="account-info">
-        <img class="profile-img" src="img/profile.png" alt="" />
-        <span class="account-name">Hadieh Ayman<p class="account-loc">Doha, Qatar</p></span>
-      </div>
-      <ul class="navbar">
-        <li>
-          <div class="icon-bg"><img src="img/dollar-sign.svg" alt="" /></div>
-          <a href="dashboard.html">dashboard</a>
-        </li>
-        <li>
-          <div class="icon-bg"><img src="img/user-group.svg" alt="" /></div>
-          <a href="customers.html">Customers</a>
-        </li>
-        <li>
-          <div class="icon-bg">
-            <img src="img/file-invoice-dollar.svg" alt="" />
-          </div>
-          <a href="invoices.html">invoices</a>
-        </li>
-        <li>
-          <div class="icon-bg">
-            <img src="img/money-check-dollar.svg" alt="" />
-          </div>
-          <a href="cheques.html">cheques</a>
-        </li>
-      </ul>
-      <div class="credit-card">
-        <p>Balance<img class="credit-logo" src="img/visa.png" alt="" /></p>
-        <p class="balance">8468.84<span> QR</span></p>
-        <p class="credit-No">9370 238 3829 16</p>
-      </div>
-    </nav>
-    <main class="container">
-      <section class="header">
-        <h1 class="header-title">Payments</h1>
-      </section>
-      <section class="paymentsinfo">
-        <div class="invoiceinfo">
-          <h3>Invoice Details</h3>
-          <p>Invoice No:</p>
-          <span>1</span>
-          <p>Amount:</p>
-          <span>1000.0</span>
-          <p>Invoice Date:</p>
-          <span>2021-11-14</span>
-          <p>Due Date:</p>
-          <span>2021-11-30</span>
-        </div>
-        <div class="custinfo">
-          <h3>Customer Details</h3>
-          <p>Customer No:</p>
-          <span>1</span>
-          <p>Company Name:</p>
-          <span>Amana Qatar Contracting</span>
-          <p>Address:</p>
-          <span>55 Salam St., Doha, Qatar.</span>
-          <p>Contact Name:</p>
-          <span>Ali Al-Omari</span>
-          <p>Email:</p>
-          <span>ali@aqc.com.qa</span>
-          <p>Phone:</p>
-          <span>7780-7780</span>
-        </div>
-      </section>
-      <section class="function">
-        <div class="search">
-          <input
-            type="text"
-            placeholder="Search for payments..."
-            class="search-box"
-          />
-          <button class="search-btn">Search</button>
-        </div>
-        <button class="add-btn">+ new payment</button>
-      </section>
-      <section class="popup-form">
-        <button class="close-btn">X</button>
-        <form class="form" action="">
-          <h2>Add a new payment</h2>
-          <label for="amount">Amount</label><br />
-          <input type="number" id="amount" name="amount" min="0" required />
-          <br />
-          <label for="payment-date">Payment Date</label><br />
-          <input type="date" id="payment-date" name="payment-date" required />
-          <br />
-          <label for="payment-mode">Payment Mode</label><br />
-          <select id="payment-mode" name="payment-mode" required>
-            <option>Bank Transfer</option>
-            <option>Credit Card</option>
-            <option>Cheque</option>
-          </select>
-        </form>
-      </section>
-      <section class="summary">
-        <div class="table-header">
-          <h1 class="table-title">Payments Summary</h1>
-          <div class="page-slider">
-            <li><button class="arrow"><</button></li>
-            <li class="page-no">1</li>
-            <li class="page-no">2</li>
-            <li class="page-no active">3</li>
-            <li class="page-no">...</li>
-            <li class="page-no">10</li>
-            <li><button class="arrow">></button></li>
-          </div>
-        </div>
-        <table class="table">
-          <tr class="table-headings">
-            <th>Payment ID</th>
-            <th>Invoice No.</th>
-            <th>Amount</th>
-            <th>Payment Date</th>
-            <th>Payment Mode</th>
-            <th>Cheque No.</th>
-            <th></th>
-          </tr>
-          <tr class="table-row">
-            <td>1</td>
-            <td>1</td>
-            <td>500.0</td>
-            <td>2021-11-15</td>
-            <td>Cheque</td>
-            <td>1234</td>
-            <td class="editing-btns">
-              <img class="edit-btn" src="img/pen.svg" />
-              <img class="delete-btn" src="img/trash.svg" />
-            </td>
-          </tr>
-        </table>
-      </section>
-    </main>
-    <footer>
-      <p class="copyright">ⓒ 2022. G5-Fatma-Hadieh-Shayma rights reserved.</p>
-    </footer>
-    <script src="js/invoices.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/dashboard.css" />
+        <link rel="stylesheet" href="css/invoices.css" />
+        <link rel="stylesheet" href="css/payment.css" />
+        <title>Payments</title>
+    </head>
+    <body>
+        <nav>
+            <p><img class="nav-logo" src="img/Logo.svg" alt="" /></p>
+            <div class="account-info">
+                <img class="profile-img" src="img/profile.png" alt="" />
+                <span class="account-name"
+                    >Hadieh Ayman
+                    <p class="account-loc">Doha, Qatar</p></span
+                >
+            </div>
+            <ul class="navbar">
+                <li>
+                    <div class="icon-bg">
+                        <a href="dashboard.html">
+                            <img src="img/dollar-sign.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="dashboard.html">dashboard</a>
+                </li>
+                <li>
+                    <div class="icon-bg">
+                        <a href="customers.html">
+                            <img src="img/user-group.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="customers.html">Customers</a>
+                </li>
+                <li>
+                    <div class="icon-bg">
+                        <a href="invoices.html">
+                            <img src="img/file-invoice-dollar.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="invoices.html">invoices</a>
+                </li>
+                <li>
+                    <div class="icon-bg">
+                        <a href="deposits.html">
+                            <img src="img/coins.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="deposits.html">Deposits</a>
+                </li>
+                <li>
+                    <div class="icon-bg">
+                        <a href="cheques.html">
+                            <img src="img/money-check-dollar.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="cheques.html">Cheques</a>
+                </li>
+            </ul>
+            <div class="credit-card">
+                <p>
+                    Balance<img class="credit-logo" src="img/visa.png" alt="" />
+                </p>
+                <p class="balance">8468.84<span> QR</span></p>
+                <p class="credit-No">9370 238 3829 16</p>
+            </div>
+        </nav>
+        <main class="container">
+            <section class="header">
+                <h1 class="header-title">Payments</h1>
+            </section>
+            <section class="paymentsinfo">
+                <div class="invoiceinfo">
+                    
+                </div>
+                <div class="custinfo">
+                    
+                </div>
+            </section>
+            <section class="function">
+                <form class="search">
+                    <input
+                        type="text"
+                        placeholder="Search for payments..."
+                        name="paymentId"
+                        class="search-box"
+                    />
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+                <button class="add-btn">+ new payment</button>
+            </section>
+            <section class="popup-form">
+                <button class="close-btn">X</button>
+                <form class="form" action="">
+                    <h2 class="form-heading">Add a new payment</h2>
+                    <input
+                        name="paymentId"
+                        id="payment-id"
+                        hidden="true"
+                        type="hidden"
+                        value=""
+                    />
+                    <input
+                        name="invoiceNo"
+                        id="invoiceNo"
+                        hidden="true"
+                        type="hidden"
+                        value=""
+                    />
+                    <div class="amount-select">
+                        <label for="amount">Amount</label>
+                        <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            value=""
+                            min="0"
+                            required
+                        />
+                    </div>
+                    <div class="payment-date-select">
+                        <label for="payment-date">Payment Date</label><br />
+                        <input
+                            type="date"
+                            id="payment-date"
+                            name="paymentDate"
+                            required
+                        />
+                    </div>
+                    <div class="payment-mode-select">
+                        <label for="payment-mode">Payment Mode</label><br />
+                        <select
+                            id="payment-mode"
+                            name="paymentMode"
+                            required
+                        ></select>
+                    </div>
+                    <div class="moreDetails">
+                        
+                    </div>
+                    <button class="plus-btn" type="submit">Add Payment</button>
+                </form>
+            </section>
+            <section class="summary">
+                <div class="table-header">
+                    <h1 class="table-title">Payments Summary</h1>
+                    <div class="page-slider">
+                        <li><button class="arrow"><</button></li>
+                        <li class="page-no">1</li>
+                        <li class="page-no">2</li>
+                        <li class="page-no active">3</li>
+                        <li class="page-no">...</li>
+                        <li class="page-no">10</li>
+                        <li><button class="arrow">></button></li>
+                    </div>
+                </div>
+                <table class="table">
+                    <tr class="table-headings">
+                        <th>Payment ID</th>
+                        <th>Invoice No.</th>
+                        <th>Amount</th>
+                        <th>Payment Date</th>
+                        <th>Payment Mode</th>
+                        <th>Cheque No.</th>
+                        <th></th>
+                    </tr>
+                    <tr class="table-row">
+                        <td>1</td>
+                        <td>1</td>
+                        <td>500.0</td>
+                        <td>2021-11-15</td>
+                        <td>Cheque</td>
+                        <td>1234</td>
+                        <td class="editing-btns">
+                            <img class="edit-btn" src="img/pen.svg" />
+                            <img class="delete-btn" src="img/trash.svg" />
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+        <footer>
+            <p class="copyright">
+                ⓒ 2022. G5-Fatma-Hadieh-Shayma rights reserved.
+            </p>
+        </footer>
+        <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+        <script type="module" src="js/payments.js"></script>
+        <script src="js/interaction.js"></script>
+    </body>
 </html>

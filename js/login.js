@@ -1,7 +1,7 @@
 import { UserRepo } from "./repository/userRepo.js";
 
 const userRepo = new UserRepo();
-const url = "../YalaPay-data/users.json";
+
 
 const clearBtn = document.querySelector(".cancel-btn");
 const loginForm = document.querySelector(".login-form");
@@ -34,7 +34,7 @@ async function validate(e) {
     );
     console.log(exists);
     if (exists!=undefined) {
-        window.location = "../dashboard.html";
+        window.location = "dashboard.html";
     } else {
         alert("Wrong password or email or name! \nPlease try again");
         loginForm.reset();

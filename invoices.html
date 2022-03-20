@@ -45,11 +45,19 @@
                 </li>
                 <li>
                     <div class="icon-bg">
+                        <a href="deposits.html">
+                            <img src="img/coins.svg" alt="" />
+                        </a>
+                    </div>
+                    <a class="nav-link" href="deposits.html">Deposits</a>
+                </li>
+                <li>
+                    <div class="icon-bg">
                         <a href="cheques.html">
                             <img src="img/money-check-dollar.svg" alt="" />
                         </a>
                     </div>
-                    <a class="nav-link" href="cheques.html">cheques</a>
+                    <a class="nav-link" href="cheques.html">Cheques</a>
                 </li>
             </ul>
             <div class="credit-card">
@@ -73,43 +81,43 @@
                 </div>
             </section>
             <section class="function">
-                <div class="search">
+                <form action="" class="search">
                     <input
                         type="text"
-                        placeholder="Search for invoices..."
+                        placeholder="Search for invoices by No..."
+                        name="invoiceNo"
                         class="search-box"
                     />
-                    <button class="search-btn">Search</button>
-                </div>
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
                 <button class="add-btn">
                     + new invoice
                 </button>
-                <div class="status-report">
+                <form class="status-report">
                     <div class="status-select">
-                        <label for="status">Invoice Status: </label>
+                        <label for="status">Status: </label>
                         <select name="status" id="status">
                             <option value="All">All</option>
                             <option value="Pending">Pending</option>
-                            <option value="Partially Paid">
-                                Partially paid
-                            </option>
+                            <option value="Partially Paid">Partially Paid</option>
                             <option value="Paid">Paid</option>
                         </select>
                     </div>
                     <div class="from-date-box">
                         <label for="from-date">From Date:</label>
-                        <input type="date" id="from-date" name="from-date" />
+                        <input type="date" id="from-date" name="fromDate" required />
                     </div>
                     <div class="to-date-box">
                         <label for="to-date">To Date:</label>
-                        <input type="date" id="to-date" name="to-date" />
+                        <input type="date" id="to-date" name="toDate" required/>
                     </div>
-                </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
             </section>
             <section class="popup-form">
                 <button class="close-btn">X</button>
                 <form class="form" action="" id="invoiceForm">
-                    <h2>Add a new invoice</h2>
+                    <h2 class="form-heading">Add a new invoice</h2>
                     <input
                         name="invoiceNo"
                         id="invoiceNo"
@@ -125,7 +133,6 @@
                         value=""
                     />
                     <div class="customer-name-select">
-                        <!-- ToDo add existing customers -->
                         <label for="customerName">Customer Name</label>
                         <select
                             id="customer-name"

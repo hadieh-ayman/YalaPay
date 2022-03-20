@@ -79,7 +79,7 @@
     transition: 0.1s;
 }
 
-.search-btn:hover, .add-btn:hover {
+.search-btn:hover, .add-btn:hover, .submit-btn:hover {
     background-color: var(--primary);
 }
 
@@ -99,9 +99,9 @@
 
 .status-report{
     grid-column: span 2;
-    display:flex;
-    margin: 0 2rem;
-    justify-content: space-around;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    justify-content: left;
 }
 
 .status-report label{
@@ -109,17 +109,33 @@
 }
 
 .status-select select{
-    padding: 0.35rem;
+    padding: 0.25rem;
     color: #fff;
     border: none;
     border-radius: 15px;
     background-color: var(--secondary);
+    cursor: pointer;
 }
 
 .status-report input{
     padding: 0.35rem;
     border-radius: 15px;
     border: 1px solid #d4d4d4;
+    cursor: pointer;
+}
+
+.submit-btn {
+    margin-left: auto;
+    padding: 0.25rem 2rem;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s;
 }
 
 .popup-form{
@@ -138,6 +154,9 @@
 
 .popup-form.active{
     display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 70vh;
     transform: translate(-50%, -50%) scale(1);
     transition: all 2s ease-in-out;
 }
@@ -178,7 +197,7 @@
 .form select{
     margin-top: 0.5rem;
     padding: 0.35rem;
-    width: 90%;
+    width: 100%;
     color: #fff;
     border: none;
     border-radius: 15px;
@@ -188,7 +207,7 @@
 .form input{
     margin-top: 0.5rem;
     padding: 0.35rem;
-    width: 90%;
+    width: 100%;
     border-radius: 15px;
     border: 1px solid #d4d4d4;
 }
@@ -283,15 +302,11 @@
 .table-row {
     text-align: center;
     border-bottom: 2px solid var(--accent);
+    cursor: pointer;
 }
 
 .table td {
     padding: 0.5rem;
-}
-
-.editing-btns {
-    display: flex;
-    justify-content: end;
 }
 
 .editing-btns img {
@@ -309,4 +324,71 @@ footer{
     display: flex;
     justify-content: center;
     align-items: end;
+}
+
+@media only screen and (max-width:60rem){
+    
+    .header{
+        flex-direction: column;
+        grid-gap: 1rem;
+    }
+
+    .count-card{
+        display: grid;
+        grid-template-columns: 0.25fr 1.75fr;
+    }
+
+    .count-card .icon-bg{
+        margin-top: 0.5rem
+    }
+
+    .counter{
+        font-size: 1.5rem;
+    }
+    .counter-desc{
+        font-size: 0.8rem;
+    }
+
+    .function{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .add-btn{
+        margin-right: auto;
+    }
+
+    .status-report{
+        grid-template-columns: 1fr;
+        grid-gap: 0.5rem;
+    }
+
+    .submit-btn{
+        margin-right: auto;
+    }
+
+    #from-date{
+        width: 50%;
+    }
+
+    .popup-form{
+        width: 90vw;
+    }
+
+    .popup-form.active{
+        height: 50vh;
+        transform: translate(-50%, -90%) scale(1);
+    }
+
+    .plus-btn{
+        width: 100%;
+    }
+    .summary{
+        width: 70vw;
+        overflow-x: scroll;
+    }
+
+    .page-slider{
+        display: none;
+    }
 }
